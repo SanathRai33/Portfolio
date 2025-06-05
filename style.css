@@ -21,9 +21,7 @@
       }
 
       body {
-        /* background-color: var(--light-color);
-         */
-         background-color: red;
+        background-color: var(--light-color);
         color: var(--dark-color);
         line-height: 1.6;
         transition: var(--transition);
@@ -391,6 +389,7 @@
         height: 100%;
         object-fit: contain;
         transition: var(--transition);
+        background-color: white;
       }
 
       .project-card:hover .project-image img {
