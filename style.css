@@ -21,7 +21,9 @@
       }
 
       body {
-        background-color: var(--light-color);
+        /* background-color: var(--light-color);
+         */
+         background-color: red;
         color: var(--dark-color);
         line-height: 1.6;
         transition: var(--transition);
