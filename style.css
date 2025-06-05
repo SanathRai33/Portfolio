@@ -380,7 +380,7 @@
 
       .project-image {
         height: 200px;
-        overflow: hidden;
+        overflow: hidden; background-color: white;
       }
 
       .project-image img {
