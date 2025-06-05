@@ -1,15 +1,15 @@
-      // Dark/Light Mode Toggle
+      // Dark/Light Mode Toggle---------------------------------------------------------
       const themeToggle = document.getElementById("themeToggle");
       const body = document.body;
 
-      // Check for saved user preference or use preferred color scheme
+      // Checking that saved color scheme---------------------------------------------------------
       const currentTheme =
         localStorage.getItem("theme") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches
           ? "dark"
           : "light");
 
-      // Apply the current theme
+      // Applying the theme for color scheme---------------------------------------------------------
       if (currentTheme === "dark") {
         body.classList.add("dark-mode");
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
@@ -27,7 +27,7 @@
         }
       });
 
-      // Typing Animation
+      // Typing Animation---------------------------------------------------------
       const typingText = document.getElementById("typingText");
       const texts = [
         "Web Developer",
@@ -66,10 +66,10 @@
         setTimeout(type, typingSpeed);
       }
 
-      // Start typing animation
+      // Start typing animation---------------------------------------------------------
       setTimeout(type, 1000);
 
-      // Mobile Navigation
+      // Mobile Navigation---------------------------------------------------------
       const hamburger = document.querySelector(".hamburger");
       const navLinks = document.querySelector(".nav-links");
 
@@ -80,7 +80,7 @@
           : '<i class="fas fa-bars"></i>';
       });
 
-      // Close mobile menu when clicking a link
+      // Close mobile menu when clicking a link---------------------------------------------------------
       document.querySelectorAll(".nav-links a").forEach((link) => {
         link.addEventListener("click", () => {
           navLinks.classList.remove("active");
@@ -88,7 +88,7 @@
         });
       });
 
-      // Scroll Animation
+      // Scroll Animation---------------------------------------------------------
       const animateElements = document.querySelectorAll(".animate");
 
       function checkScroll() {
@@ -102,13 +102,13 @@
         });
       }
 
-      // Initial check
+      // Starting check---------------------------------------------------------
       checkScroll();
 
-      // Check on scroll
+      // Check on scroll---------------------------------------------------------
       window.addEventListener("scroll", checkScroll);
 
-      // Open and Close       
+      // Open and Close function for card---------------------------------------------------------   
       function openModal(id) {
           document.getElementById(id).style.display = "block";
         }
@@ -117,7 +117,7 @@
           document.getElementById(id).style.display = "none";
         }
 
-        // Close modal if user clicks outside
+        // Close card if clicks on outside (Extra )---------------------------------------------------------
         window.onclick = function (event) {
           const modals = document.querySelectorAll(".modal");
           modals.forEach(modal => {
@@ -127,33 +127,26 @@
           });
         };
 
-      // Set current year in footer
+      // Set current year in footer---------------------------------------------------------
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Form submission
+      // Form submission---------------------------------------------------------
       const contactForm = document.getElementById("contactForm");
 
       contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        // Get form values
+        // Get form values---------------------------------------------------------
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const subject = document.getElementById("subject").value;
         const message = document.getElementById("message").value;
 
-        // Here you would typically send the form data to a server
-        // For demonstration, we'll just show an alert
+        // alerting the message---------------------------------------------------------
         alert(
           `Thank you, ${name}! Your message has been sent. I'll get back to you soon.`
         );
 
-        // Reset form
+        // Reset form---------------------------------------------------------
         contactForm.reset();
       });
-
-      // Replace placeholder image with your actual image
-      // Replace this URL with the path to your image
-      //   const profileImage = document.getElementById("profileImage");
-      //   profileImage.src =
-      //     "https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"; // Update this with your image path
