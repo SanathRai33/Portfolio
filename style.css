@@ -401,7 +401,6 @@
         border-top: 5px solid black;
         display: flex;
         flex-direction: column;
-        background-color: red;
       }
 
       .project-info h3 {
