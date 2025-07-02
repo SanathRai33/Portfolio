@@ -27,6 +27,20 @@ themeToggle.addEventListener("click", () => {
   }
 });
 
+// Cursor animation
+var bodys = document.querySelector("body");
+var curzor = document.querySelector(".curzor");
+
+bodys.addEventListener("mousemove", function (dets) {
+  gsap.to(curzor, {
+    x: dets.x,
+    y: dets.y,
+    duration: 1,
+    ease: "back.out",
+  });
+});
+
+
 // Typing Animation---------------------------------------------------------
 const typingText = document.getElementById("typingText");
 const texts = [
