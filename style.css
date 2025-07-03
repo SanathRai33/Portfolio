@@ -38,8 +38,9 @@ body .curzor {
     border-radius: 50%;
     position: fixed;
     z-index: 9999;
-  background-color: rgba(0, 0, 0, 0.7);
-  /* border-radius: 50%; */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* mix-blend-mode: difference; */
+    opacity: 0.8;
 }
 
 .container {

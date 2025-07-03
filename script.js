@@ -21,9 +21,11 @@ themeToggle.addEventListener("click", () => {
   if (body.classList.contains("dark-mode")) {
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     localStorage.setItem("theme", "dark");
+    document.querySelector(".curzor").style.backgroundColor = "white";
   } else {
     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     localStorage.setItem("theme", "light");
+    document.querySelector(".curzor").style.backgroundColor = "rgba(0, 0, 0)";
   }
 });
 
@@ -40,6 +42,25 @@ bodys.addEventListener("mousemove", function (dets) {
   });
 });
 
+// var nav = document.querySelector(".nav-links");
+
+    gsap.from(".nav-links li", {
+        y: -20,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+        delay: 0.5,
+        ease: "power2.out"
+    });
+
+        gsap.from("nav .logo", {
+        y: -20,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+        delay: 0.1,
+        ease: "power2.out"
+    });
 
 // Typing Animation---------------------------------------------------------
 const typingText = document.getElementById("typingText");
@@ -128,6 +149,19 @@ function checkScrolls() {
     }
   });
 }
+
+// gsap.to(".skill-bar .skill-progress", {
+//   x: 150,
+//   duration: 2,
+//   delay: 0.5,
+//   scrollTrigger: {
+//     trigger: ".skillbar",
+//     scoller: "body",
+//     markers: true,
+//     start: "top 100%",
+//     end: "top 10%",
+//   },
+// });
 
 // Trigger on scroll and on load
 window.addEventListener("scroll", checkScrolls);
