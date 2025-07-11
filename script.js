@@ -218,10 +218,12 @@ contactForm.addEventListener("submit", (e) => {
 
 
 // Bubbles on hover-------------------------------------------------------------
-document.body.addEventListener('mousemove', function(e) {
+document.body.addEventListener('mousemove', function (e) {
   const rect = document.body.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
+
+  const colors = ['#61dafb', '#ff6b6b', '#6fff8c', '#fcd34d']; // blue, red, green, yellow
 
   if (Math.random() > 0.7) {
     const bubble = document.createElement('div');
@@ -232,6 +234,12 @@ document.body.addEventListener('mousemove', function(e) {
     const tx = Math.cos(angle) * distance;
     const ty = Math.sin(angle) * distance - 20;
 
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const size = 6 + Math.random() * 4; // Size between 6px to 20px
+
+    bubble.style.width = `${size}px`;
+    bubble.style.height = `${size}px`;
+    bubble.style.backgroundColor = color;
     bubble.style.setProperty('--tx', `${tx}px`);
     bubble.style.setProperty('--ty', `${ty}px`);
     bubble.style.left = `${x}px`;
