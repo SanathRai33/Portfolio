@@ -215,3 +215,30 @@ contactForm.addEventListener("submit", (e) => {
   // Reset form---------------------------------------------------------
   contactForm.reset();
 });
+
+
+// Bubbles on hover-------------------------------------------------------------
+document.body.addEventListener('mousemove', function(e) {
+  const rect = document.body.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  if (Math.random() > 0.7) {
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 20 + Math.random() * 30;
+    const tx = Math.cos(angle) * distance;
+    const ty = Math.sin(angle) * distance - 20;
+
+    bubble.style.setProperty('--tx', `${tx}px`);
+    bubble.style.setProperty('--ty', `${ty}px`);
+    bubble.style.left = `${x}px`;
+    bubble.style.top = `${y}px`;
+
+    document.body.appendChild(bubble);
+
+    setTimeout(() => bubble.remove(), 2000);
+  }
+});
