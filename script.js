@@ -223,7 +223,13 @@ document.body.addEventListener('mousemove', function (e) {
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
 
-  const colors = ['#61dafb', '#ff6b6b', '#6fff8c', '#fcd34d']; // blue, red, green, yellow
+  const isDarkMode = document.body.classList.contains('dark-mode');
+
+  // Theme-based color sets
+  const darkColors = ['#61dafb', '#fcd34d', '#f87171', '#34d399'];  // blue, yellow, red, green
+  const lightColors = ['#ff6b6b', '#60a5fa', '#a78bfa', '#facc15']; // indigo, pink, teal, amber
+
+  const colors = isDarkMode ? darkColors : lightColors;
 
   if (Math.random() > 0.7) {
     const bubble = document.createElement('div');
@@ -235,7 +241,7 @@ document.body.addEventListener('mousemove', function (e) {
     const ty = Math.sin(angle) * distance - 20;
 
     const color = colors[Math.floor(Math.random() * colors.length)];
-    const size = 6 + Math.random() * 4; // Size between 6px to 20px
+    const size = 6 + Math.random() * 4;
 
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;

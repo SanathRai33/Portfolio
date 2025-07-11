@@ -50,7 +50,7 @@ body .curzor {
   z-index: 9999;
   animation: float-pop 2s ease-out forwards;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-  mix-blend-mode: screen; /* better glowing effect on dark bg */
+  /* mix-blend-mode: screen; better glowing effect on dark bg */
   /* height: 8px;
   width: 8px; */
 }
