@@ -62,6 +62,17 @@ bodys.addEventListener("mousemove", function (dets) {
         ease: "power2.out"
     });
 
+    
+    gsap.from(".skill-cards  div", {
+        y: -20,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+        delay: 0.5,
+        ease: "power2.out"
+    });
+
+
 // Typing Animation---------------------------------------------------------
 const typingText = document.getElementById("typingText");
 const texts = [
