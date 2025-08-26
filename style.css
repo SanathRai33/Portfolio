@@ -412,6 +412,14 @@ body.dark-mode .skill-bar {
   background: #f5f5f5;
   border-radius: 12px;
   max-width: 100%;
+  color: var(--dark-color);
+  transition: var(--transition);
+}
+
+
+body.dark-mode .skill-conatiner {
+  background-color: rgba(44, 62, 80, 0.5);
+  color: #ddd;
 }
 
 .skill-heading {
@@ -425,18 +433,21 @@ body.dark-mode .skill-bar {
   text-align: center;
   font-size: 14px;
   margin-bottom: 20px;
-  color: #555;
 }
 
-/* Horizontal scroll container */
 .skill-cards {
   display: flex;
   gap: 15px;
-  overflow-x: auto; /* enables horizontal scroll */
-  scrollbar-width: thin; /* firefox */
+  overflow-x: auto;
+  scrollbar-width: thin;
   padding: 10px;
   scroll-behavior: smooth;
-  height: 220px; /* between 200-250px */
+  height: 220px;
+}
+
+body.dark-mode .skill-cards div {
+  background-color: #34495e;
+  color: #ddd;
 }
 
 /* Hide default scrollbar look (optional) */
@@ -467,6 +478,7 @@ body.dark-mode .skill-bar {
   justify-content: center;
   align-items: center;
   transition: transform 0.2s ease;
+  /* position: relative; */
 }
 
 .skill-cards div:hover {

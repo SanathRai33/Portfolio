@@ -44,34 +44,32 @@ bodys.addEventListener("mousemove", function (dets) {
 
 // var nav = document.querySelector(".nav-links");
 
-    gsap.from(".nav-links li", {
-        y: -20,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
-        delay: 0.5,
-        ease: "power2.out"
-    });
+gsap.from(".nav-links li", {
+  y: -20,
+  opacity: 0,
+  stagger: 0.2,
+  duration: 1,
+  delay: 0.5,
+  ease: "power2.out",
+});
 
-        gsap.from("nav .logo", {
-        y: -20,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
-        delay: 0.1,
-        ease: "power2.out"
-    });
+gsap.from("nav .logo", {
+  y: -20,
+  opacity: 0,
+  stagger: 0.2,
+  duration: 1,
+  delay: 0.1,
+  ease: "power2.out",
+});
 
-    
-    gsap.from(".skill-cards  div", {
-        y: -20,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 1,
-        delay: 0.5,
-        ease: "power2.out"
-    });
-
+gsap.from(".skill-cards div", {
+  y: 20,
+  opacity: 0,
+  stagger: 0.2,
+  duration: 1,
+  delay: 0.3,
+  ease: "power2.out",
+});
 
 // Typing Animation---------------------------------------------------------
 const typingText = document.getElementById("typingText");
@@ -227,24 +225,23 @@ contactForm.addEventListener("submit", (e) => {
   contactForm.reset();
 });
 
-
 // Bubbles on hover-------------------------------------------------------------
-document.body.addEventListener('mousemove', function (e) {
+document.body.addEventListener("mousemove", function (e) {
   const rect = document.body.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
 
-  const isDarkMode = document.body.classList.contains('dark-mode');
+  const isDarkMode = document.body.classList.contains("dark-mode");
 
   // Theme-based color sets
-  const darkColors = ['#61dafb', '#fcd34d', '#f87171', '#34d399'];  // blue, yellow, red, green
-  const lightColors = ['#ff6b6b', '#60a5fa', '#a78bfa', '#facc15']; // indigo, pink, teal, amber
+  const darkColors = ["#61dafb", "#fcd34d", "#f87171", "#34d399"]; // blue, yellow, red, green
+  const lightColors = ["#ff6b6b", "#60a5fa", "#a78bfa", "#facc15"]; // indigo, pink, teal, amber
 
   const colors = isDarkMode ? darkColors : lightColors;
 
   if (Math.random() > 0.7) {
-    const bubble = document.createElement('div');
-    bubble.className = 'bubble';
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
 
     const angle = Math.random() * Math.PI * 2;
     const distance = 20 + Math.random() * 30;
@@ -257,8 +254,8 @@ document.body.addEventListener('mousemove', function (e) {
     bubble.style.width = `${size}px`;
     bubble.style.height = `${size}px`;
     bubble.style.backgroundColor = color;
-    bubble.style.setProperty('--tx', `${tx}px`);
-    bubble.style.setProperty('--ty', `${ty}px`);
+    bubble.style.setProperty("--tx", `${tx}px`);
+    bubble.style.setProperty("--ty", `${ty}px`);
     bubble.style.left = `${x}px`;
     bubble.style.top = `${y}px`;
 
