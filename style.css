@@ -450,7 +450,6 @@ body.dark-mode .skill-cards div {
   color: #ddd;
 }
 
-/* Hide default scrollbar look (optional) */
 .skill-cards::-webkit-scrollbar {
   height: 8px;
 }
@@ -466,10 +465,9 @@ body.dark-mode .skill-cards div {
   background: #555;
 }
 
-/* Each skill card */
 .skill-cards div {
-  min-width: 150px; /* card width */
-  height: 150px; /* card height */
+  min-width: 150px; 
+  height: 150px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -498,6 +496,91 @@ body.dark-mode .skill-cards div {
   text-align: center;
 }
 
+
+/* Certificate scetion */
+.certificate-conatiner {
+  padding: 20px;
+  background: #ecf0f1;
+  border-radius: 12px;
+  max-width: 100%;
+  color: var(--dark-color);
+  transition: var(--transition);
+}
+
+body.dark-mode .certificate-conatiner {
+  background-color: rgba(44, 62, 80, 0.5);
+  color: #ddd;
+}
+
+.certificate-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.certificate-desc {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.certificate-cards {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 50px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding: 10px;
+  scroll-behavior: smooth;
+  /* height: 250px; */
+}
+
+.certificate-cards::-webkit-scrollbar {
+  height: 8px;
+}
+.certificate-cards::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 10px;
+}
+.certificate-cards::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.certificate-cards::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.certificate-cards div {
+  min-width: fit-content; 
+  /* height: 230px; */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+  /* position: relative; */
+}
+
+.certificate-cards div:hover {
+  transform: translateY(-5px);
+}
+
+.certificate-cards img {
+  width: 300px;
+  height: fit-content;
+  object-fit: contain;
+  background-color: white;
+}
+
+.certificate-cards p {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
 
 /* Projects Section */
 .projects {

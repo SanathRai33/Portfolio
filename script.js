@@ -75,7 +75,7 @@ gsap.from(".skill-cards div", {
 const typingText = document.getElementById("typingText");
 const texts = [
   "Web Developer",
-  "UI/UX Designer",
+  "Back End Developer",
   "Freelancer",
   "Front End Developer",
   "MERN Stack Developer",
