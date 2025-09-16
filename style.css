@@ -911,6 +911,33 @@ textarea.form-control {
   transform: translateY(-3px);
 }
 
+/* Add to your CSS */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.toast.success {
+  background-color: #4CAF50;
+}
+
+.toast.error {
+  background-color: #F44336;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 footer {
   background-color: black;
   color: white;

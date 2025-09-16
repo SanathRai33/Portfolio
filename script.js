@@ -204,26 +204,7 @@ window.onclick = function (event) {
 // Set current year in footer---------------------------------------------------------
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Form submission---------------------------------------------------------
-const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // Get form values---------------------------------------------------------
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
-
-  // alerting the message---------------------------------------------------------
-  alert(
-    `Thank you, ${name}! Your message has been sent. I'll get back to you soon.`
-  );
-
-  // Reset form---------------------------------------------------------
-  contactForm.reset();
-});
 
 // Bubbles on hover-------------------------------------------------------------
 document.body.addEventListener("mousemove", function (e) {
@@ -263,4 +244,63 @@ document.body.addEventListener("mousemove", function (e) {
 
     setTimeout(() => bubble.remove(), 2000);
   }
+});
+
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 100);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
+}
+
+// Form submission handler
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Get form values
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData);
+    
+    // Show loading state
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const originalText = btnText.textContent;
+    btnText.innerHTML = '<i class="fas fa-spinner"></i> Sending...';
+    submitBtn.disabled = true;
+
+    try {
+        // Send form data to FormSubmit using your activation token
+        const response = await fetch('https://formsubmit.co/ajax/&&$1255a4328d3049d21ec725bc972ff', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showToast(`Thank you, ${data.name}! Your message has been sent successfully. I'll get back to you soon.`);
+            contactForm.reset();
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        showToast("Sorry, there was an error sending your message. Please try again later or contact me directly at sanathrai03@gmail.com", "error");
+    } finally {
+        // Reset button state
+        btnText.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
 });
