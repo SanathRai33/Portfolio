@@ -259,6 +259,20 @@ function showToast(message, type = 'success') {
     }, 4000);
 }
 
+// Toast notification function
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => toast.classList.add('show'), 100);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
+}
+
 // Form submission handler
 const contactForm = document.getElementById("contactForm");
 
@@ -271,9 +285,8 @@ contactForm.addEventListener("submit", async (e) => {
     
     // Show loading state
     const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const originalText = btnText.textContent;
-    btnText.innerHTML = '<i class="fas fa-spinner"></i> Sending...';
+    const originalText = submitBtn.textContent;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
 
     try {
@@ -284,7 +297,14 @@ contactForm.addEventListener("submit", async (e) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+                subject: data.subject,
+                message: data.message,
+                _subject: "New message from Sanath Rai's Portfolio!", // Additional subject line
+                _template: "table" // Format as table
+            })
         });
         
         const result = await response.json();
@@ -300,7 +320,7 @@ contactForm.addEventListener("submit", async (e) => {
         showToast("Sorry, there was an error sending your message. Please try again later or contact me directly at sanathrai03@gmail.com", "error");
     } finally {
         // Reset button state
-        btnText.innerHTML = originalText;
+        submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }
 });
