@@ -310,8 +310,16 @@ h1 span {
 }
 
 /* About Section */
-.about {
+body.dark-mode .about {
+  background-image: url('https://wallpaperaccess.com/full/4230797.jpg');
+}
+
+.about{
   padding: 100px 0;
+  background-image: url('https://wallpaperaccess.com/full/4406984.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .section-title {
