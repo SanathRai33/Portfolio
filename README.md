@@ -90,6 +90,9 @@ Portfolio/
 3. **Access the website**
    - If using a server: Navigate to `http://localhost:8000`
    - If opening directly: Double-click `index.html`
+  
+### 🌐Live
+[Go Live](https://sanathrai33.github.io/Portfolio/)
 
 ## 🎯 Usage
 
@@ -168,6 +171,7 @@ const response = await fetch('https://formsubmit.co/ajax/YOUR_EMAIL', {
 - **Location**: Puttur, Dakshina Kannada, Karnataka, India
 
 ### Social Links
+- **Portfolio** [Go Live](https://sanathrai33.github.io/Portfolio/)
 - **GitHub**: [@SanathRai33](https://github.com/SanathRai33/)
 - **LinkedIn**: [Sanath Rai](https://www.linkedin.com/in/sanath-rai-18296b358/)
 - **Instagram**: [@sannu_rai33](https://www.instagram.com/sannu_rai33)
